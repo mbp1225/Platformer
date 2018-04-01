@@ -616,9 +616,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: Template_2D
-  organizationId: 
+  cloudProjectId: 99e094ff-ff79-48f7-97c6-c203c5116386
+  projectName: Platformer
+  organizationId: mbp1225
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0

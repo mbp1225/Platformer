@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class Character : MonoBehaviour
 {
@@ -64,6 +65,11 @@ public class Character : MonoBehaviour
             hit2.transform.gameObject.GetComponent<Enemy>().Die();
             return false;
         }
+        else if (hit && hit.transform.tag == "Death")
+        {
+            Die();
+            return false;
+        }
         else return false;
     }
 
@@ -93,6 +99,7 @@ public class Character : MonoBehaviour
 
     public void Die()
     {
+        Analytics.CustomEvent("Player Death");
         Destroy(gameObject);
     }
 }

@@ -17,7 +17,8 @@ public class CameraController : MonoBehaviour
 	void Update ()
     {
         DrawBounds();
-        if (Mathf.Abs(player.position.x - transform.position.x) > xDis || Mathf.Abs(player.position.y - transform.position.y) > yDis) transform.DOMove(player.position + (Vector3.forward * -10), 1.5f);
+        if (!player) return;
+        if (Mathf.Abs(player.position.x - transform.position.x) > xDis || Mathf.Abs(player.position.y - transform.position.y) > yDis) Follow();
 	}
 
     void DrawBounds()
@@ -29,5 +30,12 @@ public class CameraController : MonoBehaviour
         Debug.DrawLine(transform.position - (Vector3.up * (yDis)) + (Vector3.left * (xDis)) + (Vector3.forward * 5), transform.position + (Vector3.up * (yDis)) + (Vector3.left * (xDis)) + (Vector3.forward * 5));
 
         Debug.DrawLine(transform.position - (Vector3.up * (yDis)) - (Vector3.left * (xDis)) + (Vector3.forward * 5), transform.position + (Vector3.up * (yDis)) - (Vector3.left * (xDis)) + (Vector3.forward * 5));
+    }
+
+    void Follow()
+    {
+        transform.DOMove(player.position + (Vector3.forward * -10), 1.5f);
+
+        
     }
 }
